@@ -1,13 +1,13 @@
-# Use Nginx base image to serve static content
+# Use Nginx to serve static content
 FROM nginx:alpine
 
-# Remove default nginx website
+# Remove default content
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy your static site files into nginx html directory
+# Copy website files into the container
 COPY . /usr/share/nginx/html
 
-# Expose port 80
+# Expose port 80 for serving
 EXPOSE 80
 
-# Nginx will start automatically
+# Nginx auto-starts on container run
