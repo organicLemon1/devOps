@@ -11,3 +11,4 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 
 # Nginx auto-starts on container run
+
