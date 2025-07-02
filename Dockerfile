@@ -1,20 +1,14 @@
-# Use Node.js official LTS image
-FROM node:18
+# Use Nginx base image to serve static content
+FROM nginx:alpine
 
-# Set working directory inside container
-WORKDIR /usr/src/app
+# Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
-# Copy package files
-COPY package*.json ./
+# Copy your static site files into nginx html directory
+COPY . /usr/share/nginx/html
 
-# Install dependencies
-RUN npm install
+# Expose port 80
+EXPOSE 80
 
-# Copy rest of the app source code
-COPY . .
+# Nginx will start automatically
 
-# Expose the port the app listens on
-EXPOSE 3000
-
-# Start the app
-CMD [ "node", "app.js" ]
