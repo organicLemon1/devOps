@@ -11,4 +11,3 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 
 # Nginx will start automatically
-
